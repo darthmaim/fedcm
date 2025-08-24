@@ -22,13 +22,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - uses: pnpm/action-setup@v4
+      with:
+        run_install: false
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm test
+        cache: 'pnpm'
+    - run: pnpm install
+    - run: pnpm test
 
   success:
     name: Success
@@ -54,15 +57,18 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
       - name: Setup Node.js 22
         uses: actions/setup-node@v4
         with:
           node-version: 22.18.0
-          cache: 'npm'
+          cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install Dependencies
-        run: npm ci
+        run: pnpm install
 
       - name: Create Release Pull Request
         uses: changesets/action@v1
@@ -73,5 +79,5 @@ jobs:
         with:
           title: New Release
           commit: Create new release
-          publish: npm run release
+          publish: pnpm run release
           setupGitUser: true
