@@ -44,7 +44,7 @@ export interface IdentityProviderBranding {
   icons?: IdentityProviderIcon[],
 
   /** A user-recognizable name for the IDP. */
-  name: string,
+  name?: string,
 }
 
 export interface IdentityProviderAPIConfig {
