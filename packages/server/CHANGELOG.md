@@ -1,5 +1,11 @@
 # @fedcm/server
 
+## 0.0.3
+
+### Patch Changes
+
+- Allow `URL` for account `picture` ([`9adca3d`](https://github.com/darthmaim/fedcm/commit/9adca3de44b1f3691c978f06454659fa49a6a82b) by [@darthmaim](https://github.com/darthmaim))
+
 ## 0.0.2
 
 ### Patch Changes
