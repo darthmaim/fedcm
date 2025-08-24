@@ -96,7 +96,7 @@ export interface IdentityProviderAccount {
   given_name?: string,
 
   /** URL for the account’s picture. */
-  picture?: string,
+  picture?: string | URL,
 
   /**
    *  A list of RPs (that gets matched against the requesting clientId) this account is already registered with.
