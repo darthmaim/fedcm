@@ -3,15 +3,15 @@ export type IdentityProviderWellKnown = IdentityProviderWellKnownProvider | Iden
 
 export interface IdentityProviderWellKnownProvider {
   /** A list of URLs that points to valid config files */
-  provider_urls: string[],
+  provider_urls: (string | URL)[],
 }
 
 export interface IdentityProviderWellKnownAccountLogin {
   /** A URL that points to the same location as the accounts_endpoint in the config files. */
-  accounts_endpoint: string;
+  accounts_endpoint: string | URL;
 
   /** A URL that points to the same location as the login_url in the config files. */
-  login_url: string;
+  login_url: string | URL;
 }
 
 export interface IdentityProviderIcon {
@@ -19,7 +19,7 @@ export interface IdentityProviderIcon {
    * The url pointing to the icon image, which must be square and single resolution (not a multi-resolution .ico).
    * The icon needs to comply with the [maskable](https://www.w3.org/TR/appmanifest/#icon-masks) specification.
    */
-  url: string,
+  url: string | URL,
 
   /** The width/height of the square icon. The size may be omitted if the icon is in a vector graphic format (like SVG). */
   size?: number,
@@ -49,19 +49,19 @@ export interface IdentityProviderBranding {
 
 export interface IdentityProviderAPIConfig {
   /** A URL that points to an HTTP API that complies with the Accounts endpoint API. */
-  accounts_endpoint: string,
+  accounts_endpoint: string | URL,
 
   /** A URL that points to an HTTP API that complies with the Client Metadata API. */
-  client_metadata_endpoint?: string,
+  client_metadata_endpoint?: string | URL,
 
   /** A URL that points to an HTTP API that complies with the Identity assertion endpoint API. */
-  id_assertion_endpoint: string,
+  id_assertion_endpoint: string | URL,
 
   /** A URL that points to the login page of the IDP. */
-  login_url: string,
+  login_url: string | URL,
 
   /** A URL that points to an HTTP API that complies with the Disconnect endpoint API. */
-  disconnect_endpoint?: string,
+  disconnect_endpoint?: string | URL,
 
   /** A set of IdentityProviderBranding options. */
   branding?: IdentityProviderBranding,
@@ -129,10 +129,10 @@ export interface IdentityProviderAccountList {
 
 export interface IdentityProviderClientMetadata {
   /** A link to the RP's Privacy Policy. */
-  privacy_policy_url?: string,
+  privacy_policy_url?: string | URL,
 
   /** A link to the RP's Terms of Service. */
-  terms_of_service_url?: string,
+  terms_of_service_url?: string | URL,
 }
 
 /**
@@ -149,7 +149,7 @@ export interface IdentityAssertionTokenResponse {
 
 export interface IdentityAssertionContinueOnResponse {
   /** A URL that the user agent will open in a popup to finish the authentication process. */
-  continue_on: string,
+  continue_on: string | URL,
 }
 
 export interface IdentityAssertionErrorResponse {
@@ -165,7 +165,7 @@ export interface IdentityCredentialErrorInit {
   error?: string,
 
   /** A URL where the user can learn more information about the error. */
-  url?: string,
+  url?: string | URL,
 }
 
 export interface IdentityAssertionRequest {
