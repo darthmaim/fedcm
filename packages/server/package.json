@@ -1,0 +1,26 @@
+{
+  "name": "@fedcm/server",
+  "version": "0.0.0",
+  "description": "Library to simplify handling of FedCM requests on the server.",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darthmaim/fedcm.git",
+    "directory": "packages/server"
+  },
+  "keywords": [
+    "fedcm"
+  ],
+  "scripts": {
+    "test": "tsc --noEmit",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "5.9.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
