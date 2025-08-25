@@ -9,11 +9,20 @@ export function isValidWebIdentityRequest(request: Request): boolean {
 
 export function parseIdentityAssertionRequest(formData: FormData): IdentityAssertionRequest {
   const client_id = getFormDataString(formData, 'client_id');
+  if(!client_id) {
+    throw new FedCMServerError('`client_id` is missing');
+  }
+
   const account_id = getFormDataString(formData, 'account_id');
+  if(!account_id) {
+    throw new FedCMServerError('`account_id` is missing')
+  }
+
   const nonce = getFormDataString(formData, 'nonce');
   const is_auto_selected = getFormDataString(formData, 'is_auto_selected') === 'true';
   const params = parseParams(getFormDataString(formData, 'params'));
   const fields = getFormDataString(formData, 'fields')?.split(',');
+
   const disclosure_text_shown = getFormDataString(formData, 'disclosure_text_shown') === 'true';
   const disclosure_shown_for: IdentityAssertionField[] = getFormDataString(formData, 'disclosure_shown_for')?.split(',')
     ?? disclosure_text_shown ? ['name', 'email', 'picture'] : [];
@@ -27,6 +36,13 @@ export function parseIdentityAssertionRequest(formData: FormData): IdentityAsser
     fields,
     disclosure_text_shown,
     disclosure_shown_for,
+  }
+}
+
+export class FedCMServerError extends Error {
+  constructor(message?: string) {
+    super(message);
+    Object.setPrototypeOf(this, FedCMServerError.prototype);
   }
 }
 
