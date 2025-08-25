@@ -1,5 +1,13 @@
 # @fedcm/server
 
+## 0.0.5
+
+### Patch Changes
+
+- Add (deprecated) `code` property to `IdentityCredentialErrorInit` ([`6edd05d`](https://github.com/darthmaim/fedcm/commit/6edd05dd97393d958addb94aa8ff50992fc08b47) by [@darthmaim](https://github.com/darthmaim))
+- Add JSDoc for server functions ([`26f9a0c`](https://github.com/darthmaim/fedcm/commit/26f9a0cf01cbe1ccd11035e828540a1621d0e4b7) by [@darthmaim](https://github.com/darthmaim))
+- Add `icons` to metadata interface ([`8b44abd`](https://github.com/darthmaim/fedcm/commit/8b44abd09e2d267c534c4a52813c88b9e17dcdf3) by [@darthmaim](https://github.com/darthmaim))
+
 ## 0.0.4
 
 ### Patch Changes
