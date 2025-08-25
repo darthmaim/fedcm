@@ -133,6 +133,9 @@ export interface IdentityProviderClientMetadata {
 
   /** A link to the RP's Terms of Service. */
   terms_of_service_url?: string | URL,
+
+  /** List of icons for the RP. */
+  icons?: IdentityProviderIcon[],
 }
 
 /**
