@@ -164,6 +164,12 @@ export interface IdentityCredentialErrorInit {
    * An IDP MUST NOT expose sensitive user information in this field, since it is exposed to the RP. */
   error?: string,
 
+  /**
+   * Error code of the error. Some browser will show different error messages depending on the code provided.
+   * @deprecated
+   */
+  code?: 'invalid_request' | 'unauthorized_client' | 'access_denied' | 'server_error' | 'temporarily_unavailable' | (string & {}),
+
   /** A URL where the user can learn more information about the error. */
   url?: string | URL,
 }
