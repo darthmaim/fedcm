@@ -1,6 +1,6 @@
 {
   "name": "@fedcm/server",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Library to simplify handling of FedCM requests on the server.",
   "license": "MIT",
   "main": "dist/index.js",
