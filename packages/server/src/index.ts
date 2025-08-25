@@ -3,10 +3,19 @@ import { IdentityAssertionField, IdentityAssertionRequest } from './types';
 export type * from './types';
 
 
+/** Verifies that the request has the required `Sec-Fetch-Dest: webidentity` header */
 export function isValidWebIdentityRequest(request: Request): boolean {
   return request.headers.has('Sec-Fetch-Dest') && request.headers.get('Sec-Fetch-Dest') === 'webidentity';
 }
 
+
+/**
+ * Parse `FormData` to an validated assertion request.
+ *
+ * @param formData FormData containing the assertion request.
+ * @returns Parsed `IdentityAssertionRequest`.
+ * @throws {@link FedCMServerError} if required fields are missing.
+ */
 export function parseIdentityAssertionRequest(formData: FormData): IdentityAssertionRequest {
   const client_id = getFormDataString(formData, 'client_id');
   if(!client_id) {
