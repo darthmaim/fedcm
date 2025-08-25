@@ -1,5 +1,11 @@
 # @fedcm/server
 
+## 0.0.4
+
+### Patch Changes
+
+- Throw error if `client_id` or `account_id` is missing ([`98c1004`](https://github.com/darthmaim/fedcm/commit/98c10049f0828c166254c2d8629d3fa7dddf939d) by [@darthmaim](https://github.com/darthmaim))
+
 ## 0.0.3
 
 ### Patch Changes
